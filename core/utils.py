@@ -10,4 +10,4 @@ class Timer():
 
 	def stop(self):
 		end_dt = dt.datetime.now()
-print('Time taken: %s' % (end_dt - self.start_dt))
+		print('Time taken: %s' % (end_dt - self.start_dt))

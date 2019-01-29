@@ -81,4 +81,4 @@ class DataLoader():
                 normalised_window.append(normalised_col)
             normalised_window = np.array(normalised_window).T # reshape and transpose array back into original multidimensional format
             normalised_data.append(normalised_window)
-	return np.array(normalised_data)
+        return np.array(normalised_data)

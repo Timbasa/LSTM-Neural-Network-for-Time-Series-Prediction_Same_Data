@@ -117,6 +117,4 @@ class Model():
             predicted.append(self.model.predict(curr_frame[newaxis, :, :])[0, 0])
             curr_frame = curr_frame[1:]
             curr_frame = np.insert(curr_frame, [window_size - 2], predicted[-1], axis=0)
-
-
-	return predicted
+        return predicted
