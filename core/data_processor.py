@@ -22,11 +22,11 @@ class DataLoader():
         '''
         data_windows = []
         for i in range(self.len_test - seq_len):
-            data_windows.append(self.data_test[i:i+seq_len])
+            # data_windows.append(self.data_test[i:i+seq_len])
+            data_windows.append(normalise.transform(self.data_test[i:i+seq_len]))
 
         data_windows = np.array(data_windows).astype(float)
-        data_windows = self.normalise_windows(data_windows, single_window=False) if normalise else data_windows
-
+        # data_windows = self.normalise_windows(data_windows, single_window=False) if normalise else data_windows)
         x = data_windows[:, :-1]
         y = data_windows[:, -1, [0]]
         return x,y
@@ -65,7 +65,8 @@ class DataLoader():
     def _next_window(self, i, seq_len, normalise):
         '''Generates the next data window from the given index location i'''
         window = self.data_train[i:i+seq_len]
-        window = self.normalise_windows(window, single_window=True)[0] if normalise else window
+        # window = self.normalise_windows(window, single_window=True)[0] if normalise else window
+        window = normalise.transform(window)
         x = window[:-1]
         y = window[-1, [0]]
         return x, y

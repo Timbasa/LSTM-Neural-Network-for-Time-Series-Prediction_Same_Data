@@ -57,6 +57,7 @@ class Model():
         self.model.fit(
             x,
             y,
+            validation_split=0.75,
             epochs=epochs,
             batch_size=batch_size,
             callbacks=callbacks
